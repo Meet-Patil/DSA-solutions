@@ -1,0 +1,43 @@
+import java.util.HashMap;
+class Solution {
+	public int longestKSubstr(String s, int k) {
+	    char[] arr=s.toCharArray();
+	    HashMap <Character,Integer> map=new HashMap<>();
+	    int low=0;
+	    int high=-1;
+	    int res=-1;
+	    int n=arr.length;
+	    while(high<n){
+	        high++;
+	        if (high>=n){
+	            break;
+	        }
+	        char h=arr[high];
+	        if (map.containsKey(h)){
+	            map.put(h,map.get(h)+1)	;          
+	        }
+	        else{
+	            map.put(h,1);
+	        }
+	        while (map.size()>k){
+	            low++;
+	            char l=arr[low-1];
+	            map.put(l,map.get(l)-1);
+	            if (map.get(l)==0){
+	                map.remove(l);
+	            }
+	        }
+	        if (map.size()==k){
+    	        int sum=0;
+    	        for (int value: map.values()){
+    	            sum+=value;
+    	        }
+    	        if (sum>res){
+    	            res=sum;
+    	        }
+	        }
+	    }
+	
+		return res;
+	}
+}
