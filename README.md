@@ -17,8 +17,8 @@ Note
 This is my straightforward solution. I plan to learn and implement the optimal binary search approach with O(log(m + n)) time complexity in the future.
 
 
-#GOG question-1
-## Approach
+##GOG question-1
+ Approach
 
 - Used the **Sliding Window** technique with two pointers (`low` and `high`).
 - Maintained the frequency of characters inside the current window using a `HashMap`.
